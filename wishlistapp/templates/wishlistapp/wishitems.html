@@ -1,0 +1,13 @@
+{% extends 'wishlistapp/base.html' %}
+{% block content %}
+{% for item in wishitems %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{ item.item.image.url }}">
+        <div class="box-element product">
+            <h6><strong>{{ item.item.name }}</strong></h6>
+            <h6>{{ item.item.quantity }}</h6>
+            <hr>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

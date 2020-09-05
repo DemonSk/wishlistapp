@@ -1,0 +1,12 @@
+{% extends 'wishlistapp/base.html' %}
+{% block content %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.name }}</a>
+              <small class="text-muted">{{ object.info }}</small>
+            </div>
+              <img class="rounded-circle article-img" src="{{object.image.url}}" alt="Item_Photo">
+          </div>
+        </article>
+{% endblock content %}

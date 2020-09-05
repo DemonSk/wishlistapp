@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Wish
+from .models import Wish, Item, WishItem
 
 
 def home(request):
@@ -55,6 +55,38 @@ class WishDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+
+def items(request):
+    context = {
+        'items': Item.object.all()
+    }
+    return render(request, 'wishlistapp/items.html', context)
+
+
+def wishlist(request):
+
+    if request.user.is_authenticated:
+        wish, created = Wish.objects.get_or_create(author=request.user)
+        item = wish.wishitem_set.all()
+    else:
+        item = []
+
+    context = {
+        'wishitems': item
+    }
+
+    return render(request, 'wishlistapp/wishitems.html', context)
+
+
+class ItemListView(ListView):
+    model = Item
+    template_name = 'wishlistapp/items.html'
+    context_object_name = 'items'
+
+
+class ItemDetailView(DetailView):
+    model = Item
 
 
 def about(request):

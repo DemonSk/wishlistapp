@@ -4,6 +4,15 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 
+class Item(models.Model):
+    name = models.CharField(max_length=50)
+    info = models.CharField(max_length=100)
+    image = models.ImageField(default='defaulf.jpg', upload_to='item_pics')
+
+    def __str__(self):
+        return self.name
+
+
 class Wish(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -15,4 +24,16 @@ class Wish(models.Model):
 
     def get_absolute_url(self):
         return reverse('wishlist-detail', kwargs={'pk': self.pk})
+
+
+class WishItem(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True, blank=True)
+    wishlist = models.ForeignKey(Wish, on_delete=models.SET_NULL, null=True, blank=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+
+
+
+
+
+
 

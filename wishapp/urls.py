@@ -9,13 +9,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='wishlistapp/home.html')),
-    path('accounts/', include('allauth.urls')),
     path('', include('wishlistapp.urls')),
     path('register/', user_views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/',  auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'),
+    path('', TemplateView.as_view(template_name='wishlistapp/home.html')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

@@ -147,6 +147,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'wishlist-home'
+LOGIN_URL = 'login'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'wishlistapp.apps.WishlistappConfig',
+    'users.apps.UsersConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'crispy_forms',
 
 ]
 
@@ -144,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'wishlist-home'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -157,3 +159,5 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -3,35 +3,12 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=200, null=True)
-    email = models.CharField(max_length=200, null=True)
-
-    def __str__(self):
-        return self.name
-
-class Item(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.FloatField()
-
-    def __str__(self):
-        return self.name
-
-
-class Wishlist(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+class Wish(models.Model):
     title = models.CharField(max_length=100)
-    date = models.DateTimeField(default=timezone.now)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.id)
-
-
-class WishlistItem(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True)
-    wishlist = models.ForeignKey(Wishlist, on_delete=models.SET_NULL, null=True)
-    quantity = models.IntegerField(default=0, null=True, blank=True)
-    date_added = models.DateTimeField(auto_now_add=True)
-
+        return self.title
 

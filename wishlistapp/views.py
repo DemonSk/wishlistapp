@@ -1,17 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Wish
 
 
 def home(request):
-    return render(request, 'wishlistapp/index.html')
+    context = {
+        'posts': Wish.objects.all()
+    }
+    return render(request, 'wishlistapp/home.html', context)
 
 
-def items(request):
-    context = {}
-    return render(request, 'wishlistapp/items.html', context)
-
-
-def wishlist(request):
-    context = {}
-    return render(request, 'wishlistapp/wishlist.html', context)
+def about(request):
+    return render(request, 'wishlistapp/about.html')
 

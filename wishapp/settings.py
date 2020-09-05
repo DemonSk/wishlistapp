@@ -26,7 +26,7 @@ SECRET_KEY = '0k#6jtaqy!2nitbvvh7euvtzt4h60w+mzfa196h_yxg2xyqp5#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mywishlistapp.herokuapp.com']
+ALLOWED_HOSTS = ['mywishlistapp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '0k#6jtaqy!2nitbvvh7euvtzt4h60w+mzfa196h_yxg2xyqp5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mywishlistapp.herokuapp.com']
 
 
 # Application definition

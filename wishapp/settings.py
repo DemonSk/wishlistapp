@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'wishapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deff13d3du9cgr',
-        'USER': 'hlmkvlzsvxagqf',
-        'PASSWORD': '7eb4a6fc1f6d43623bf707e66646daa786a3699af5e42a0db416f33639db7248',
-        'HOST': 'ec2-54-75-244-161.eu-west-1.compute.amazonaws.com',
+        'NAME': 'wishlistapp',
+        'USER': 'postgres',
+        'PASSWORD': '123456789',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
